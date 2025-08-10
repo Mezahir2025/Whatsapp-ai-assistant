@@ -21,8 +21,13 @@ const client = new Client({
   }
 });
 
+const fs = require("fs");
+
 client.on("qr", (qr) => {
-  qrcode.generate(qr, { small: false });
+  qrcode.generate(qr, { small: false }, (qrcodeString) => {
+    fs.writeFileSync("qr.txt", qrcodeString);
+    console.log("QR kod qr.txt faylında saxlanıldı.");
+  });
 });
 
 client.on("ready", () => {
@@ -94,11 +99,4 @@ respond_to_message = async (msg) => {
     console.log("No message body");
   }
 };
-const fs = require("fs");
 
-client.on("qr", (qr) => {
-  qrcode.generate(qr, { small: false }, (qrcodeString) => {
-    fs.writeFileSync("qr.txt", qrcodeString);
-    console.log("QR kod qr.txt faylında saxlanıldı.");
-  });
-});
