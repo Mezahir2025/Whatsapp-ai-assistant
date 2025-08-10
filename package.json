@@ -1,4 +1,3 @@
--bot-main (1)\whatsapp-ai-bot-main\package.json
 {
   "scripts": {
     "start": "node index.js"
