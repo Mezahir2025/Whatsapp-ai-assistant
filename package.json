@@ -1,4 +1,8 @@
+-bot-main (1)\whatsapp-ai-bot-main\package.json
 {
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "axios": "^1.11.0",
     "qrcode-terminal": "^0.12.0",
