@@ -85,8 +85,9 @@ respond_to_message = async (msg) => {
     let data = { msg: msg.body, from: msg.from, from_name: msg._data.notifyName };
     console.log("Data to n8n", data);
     try {
+      console.log("Webhooka POST göndərilir...");
       let response = await axios.post("https://hook.eu2.make.com/7jhcf23vqfsk50vb9ltitdufs3329zv5", data);
-      console.log("Response from n8n", response.data.output);
+      console.log("Webhookdan cavab:", response.data);
       if (response.data.output) {
         msg.reply(response.data.output);
       } else {
@@ -99,4 +100,4 @@ respond_to_message = async (msg) => {
     console.log("No message body");
   }
 };
-
+// ...existing code...
